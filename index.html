@@ -3,283 +3,255 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>For My World, Nashwa ❤️</title>
+    <title>Nashwa: My Universe ❤️</title>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Poppins:wght@300;400;600&family=Great+Vibes&family=Parisienne&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Poppins:wght@300;600&family=Great+Vibes&family=Montserrat:wght@800&display=swap');
 
         :root {
-            --primary: #ff4d6d;
-            --deep-red: #c9184a;
+            --hot-pink: #ff0054;
             --soft-pink: #ffb3c1;
-            --glass: rgba(255, 255, 255, 0.2);
+            --deep-purple: #2b0b3d;
+            --gold: #ffbd00;
+            --white: #ffffff;
         }
+
+        * { cursor: url('https://cur.cursors-4u.net/symbols/sym-9/sym847.cur'), auto !important; }
 
         body, html {
             margin: 0; padding: 0;
             font-family: 'Poppins', sans-serif;
-            scroll-behavior: smooth;
-            background: linear-gradient(-45deg, #ffafbd, #ffc3a0, #ffafcc, #bde0fe);
-            background-size: 400% 400%;
-            animation: gradientBG 20s ease infinite;
+            background-color: var(--deep-purple);
+            color: var(--white);
             overflow-x: hidden;
-            color: #590d22;
+            scroll-behavior: smooth;
         }
 
-        @keyframes gradientBG {
-            0% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
-            100% { background-position: 0% 50%; }
+        /* Fixed Background Starfield */
+        #star-container {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            background: radial-gradient(circle at center, #4b0082 0%, #000000 100%);
+            z-index: -1;
         }
 
-        #bg-elements { position: fixed; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; z-index: 0; }
+        .star {
+            position: absolute; background: white; border-radius: 50%;
+            animation: twinkle var(--duration) infinite;
+        }
 
+        @keyframes twinkle { 0%, 100% { opacity: 0.3; } 50% { opacity: 1; } }
+
+        /* Love Meter Sidebar */
+        #love-meter-container {
+            position: fixed; right: 20px; top: 50%; transform: translateY(-50%);
+            width: 10px; height: 300px; background: rgba(255,255,255,0.1);
+            border-radius: 10px; z-index: 100; border: 1px solid var(--soft-pink);
+        }
+        #love-fill {
+            position: absolute; bottom: 0; width: 100%; height: 0%;
+            background: linear-gradient(to top, var(--hot-pink), var(--gold));
+            border-radius: 10px; transition: 0.3s;
+            box-shadow: 0 0 20px var(--hot-pink);
+        }
+
+        /* Sections */
         section {
-            position: relative; z-index: 1;
-            min-height: 110vh; /* Extra long sections */
-            display: flex; flex-direction: column;
-            justify-content: center; align-items: center;
-            padding: 150px 20px; text-align: center;
-            box-sizing: border-box;
+            min-height: 120vh; display: flex; flex-direction: column;
+            justify-content: center; align-items: center; padding: 100px 20px;
+            position: relative;
         }
 
-        .glass-card {
-            background: var(--glass);
-            backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(20px);
-            border: 1px solid rgba(255, 255, 255, 0.4);
-            border-radius: 50px;
-            padding: 80px 40px;
-            width: 90%; max-width: 600px;
-            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.1);
-            opacity: 0;
-            transform: translateY(120px);
-            transition: all 1.8s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            margin-bottom: 200px;
+        .glass-box {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(15px);
+            border: 2px solid rgba(255, 255, 255, 0.1);
+            border-radius: 40px; padding: 50px;
+            width: 85%; max-width: 900px; text-align: center;
+            box-shadow: 0 0 40px rgba(255, 0, 84, 0.2);
+            transform: translateY(100px); opacity: 0;
+            transition: 1.5s all cubic-bezier(0.19, 1, 0.22, 1);
         }
 
-        .visible .glass-card { opacity: 1; transform: translateY(0); }
+        .show .glass-box { transform: translateY(0); opacity: 1; }
 
-        h1 { font-family: 'Great Vibes', cursive; font-size: 5rem; color: var(--deep-red); margin: 0; }
-        h2 { font-family: 'Parisienne', cursive; font-size: 3.5rem; color: var(--deep-red); margin: 20px 0; }
-        h3 { font-family: 'Dancing Script', cursive; font-size: 2.8rem; color: var(--primary); }
+        h1 { font-family: 'Great Vibes'; font-size: 6rem; color: var(--hot-pink); margin-bottom: 10px; text-shadow: 0 0 20px var(--hot-pink); }
+        h2 { font-family: 'Montserrat'; text-transform: uppercase; letter-spacing: 5px; color: var(--gold); }
+        p { font-size: 1.2rem; line-height: 1.8; color: #eee; }
 
-        .big-heart { font-size: 110px; animation: pulse 1.5s infinite; margin: 30px 0; display: inline-block; }
-        @keyframes pulse { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.3); } }
-
-        .reason-box {
-            background: rgba(255, 255, 255, 0.5);
-            padding: 25px; border-radius: 30px;
-            margin: 20px 0; font-weight: 600;
-            color: var(--deep-red);
-            box-shadow: 0 10px 20px rgba(0,0,0,0.05);
-            transition: 0.4s; font-size: 1.2rem;
+        /* Floating Memory Bubbles */
+        .bubble {
+            position: absolute; background: rgba(255,255,255,0.1);
+            border: 1px solid var(--soft-pink); border-radius: 50%;
+            display: flex; justify-content: center; align-items: center;
+            font-size: 0.8rem; cursor: pointer; transition: 0.5s;
+            animation: float 6s infinite ease-in-out;
         }
+        .bubble:hover { background: var(--hot-pink); transform: scale(1.2); color: white; }
 
-        .poetry { font-family: 'Dancing Script', cursive; font-size: 2rem; line-height: 2; color: #800f2f; padding: 20px; border-left: 4px solid var(--primary); margin: 20px 0; }
+        @keyframes float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-30px); } }
 
-        .floating-text {
-            position: absolute; bottom: -100px;
-            animation: moveUp 10s linear forwards;
-            color: var(--primary); font-weight: bold; pointer-events: none;
+        /* Timeline */
+        .timeline { border-left: 3px dashed var(--gold); padding: 20px; margin-left: 20px; }
+        .time-point { margin-bottom: 40px; position: relative; padding-left: 30px; }
+        .time-point::before { content: '❤️'; position: absolute; left: -14px; background: var(--deep-purple); }
+
+        /* The Ultimate Button */
+        .btn-forever {
+            background: none; border: 4px solid var(--hot-pink); color: var(--hot-pink);
+            padding: 25px 80px; font-size: 2rem; font-family: 'Great Vibes';
+            border-radius: 100px; cursor: pointer; position: relative;
+            overflow: hidden; transition: 0.5s; font-weight: bold;
         }
+        .btn-forever:hover { background: var(--hot-pink); color: white; box-shadow: 0 0 50px var(--hot-pink); }
 
-        @keyframes moveUp { to { transform: translateY(-140vh) translateX(80px) rotate(360deg); opacity: 0; } }
-
-        .btn {
-            background: linear-gradient(45deg, var(--primary), var(--deep-red));
-            color: white; border: none; padding: 30px 100px; border-radius: 80px;
-            font-weight: 600; font-size: 2.2rem; cursor: pointer; margin-top: 50px;
-            box-shadow: 0 20px 40px rgba(255, 77, 109, 0.5);
-            transition: 0.5s; font-family: 'Great Vibes';
-        }
-        .btn:hover { transform: scale(1.1); box-shadow: 0 30px 60px rgba(255, 77, 109, 0.7); }
-
-        .arrow { font-size: 4rem; color: var(--primary); animation: bounce 2s infinite; }
-        @keyframes bounce { 0%, 20%, 50%, 80%, 100% {transform: translateY(0);} 40% {transform: translateY(-30px);} }
-
-        #success-msg { display: none; }
-
-        /* Mobile Adjustments */
-        @media (max-width: 600px) {
-            h1 { font-size: 3.5rem; }
-            h2 { font-size: 2.5rem; }
-            .big-heart { font-size: 80px; }
-            .btn { padding: 20px 60px; font-size: 1.8rem; }
-        }
     </style>
 </head>
 <body>
 
-    <div id="bg-elements"></div>
+    <div id="star-container"></div>
+    <div id="love-meter-container"><div id="love-fill"></div></div>
 
     <section class="reveal">
-        <div class="glass-card">
-            <h1>Hi Nashwa... ❤️</h1>
-            <div class="big-heart">❤️</div>
-            <p>I built this entire world for you. This is a journey through my soul, dedicated only to my Moltye.</p>
-            <p>Please... keep scrolling. I have so much to tell you.</p>
-            <div class="arrow">↓</div>
-        </div>
-    </section>
-
-    <section class="reveal">
-        <div class="glass-card">
-            <h2>My Everything</h2>
-            <div class="reason-box">✨ You're my baby 😌</div>
-            <div class="reason-box">✨ You're my everything 🥰</div>
-            <div class="reason-box">✨ You're my baby little princess 🙈</div>
-            <div class="reason-box">✨ You're my bestfriend 💖</div>
-            <p>Nashwa, you are the beat in my heart and the air in my lungs.</p>
-        </div>
-    </section>
-
-    <section class="reveal">
-        <div class="glass-card">
-            <h2>Your Smile... 😊</h2>
-            <div class="big-heart" style="font-size: 80px;">✨🌻✨</div>
-            <p class="poetry">
-                "One smile from you,<br>
-                And my whole world turns bright.<br>
-                It’s my favorite sun,<br>
-                Even in the middle of the night."
-            </p>
-            <p>Nashwa, your smile is my medicine. No matter how hard my day is, seeing you smile makes everything perfect. It’s the most beautiful thing I own in this world.</p>
-        </div>
-    </section>
-
-    <section class="reveal">
-        <div class="glass-card">
-            <h2>Your Eyes... 👀❤️</h2>
-            <div class="big-heart" style="font-size: 80px;">🧿</div>
-            <p>I can look into your eyes for a thousand years and never get bored. I see my whole future in them. They are so cute, so deep, and so full of the love I need.</p>
-            <p>When you look at me, Moltye, I feel like the luckiest man alive.</p>
-        </div>
-    </section>
-
-    <section class="reveal">
-        <div class="glass-card">
-            <h2>My Only One...</h2>
-            <p>You are the only one who <span style="color:var(--deep-red); font-weight:bold;">hears my everything</span>. You are my safe place where I can be myself without fear.</p>
-            <div class="reason-box">In Happy Times: I'll laugh with you. 🥂</div>
-            <div class="reason-box">In Sad Times: I'll hold you until it stops. 🫂</div>
-            <p>Nashwa, I will never, ever let you go. You are my home.</p>
-        </div>
-    </section>
-
-    <section class="reveal">
-        <div class="glass-card">
-            <h1>Why It's Only You</h1>
-            <div class="reason-box">Because you understand my silence.</div>
-            <div class="reason-box">Because you make me want to be better.</div>
-            <div class="reason-box">Because your heart is my favorite place.</div>
-            <div class="reason-box">Because you are my destiny, Nashwa.</div>
-        </div>
-    </section>
-
-    <section class="reveal">
-        <div class="glass-card">
-            <h1>Infinite Promises</h1>
-            <p class="poetry">
-                "I promise to choose you every day.<br>
-                In a hundred lifetimes,<br>
-                In a hundred worlds,<br>
-                I would find you,<br>
-                And I would choose you."
-            </p>
-            <div class="big-heart" style="font-size: 60px;">💍</div>
-        </div>
-    </section>
-
-    <section class="reveal">
-        <div class="glass-card">
-            <h1>To My Moltye...</h1>
-            <p>I love the way you breathe. I love the way you talk. I love the way you care. There is nothing about you that I don't cherish deeply.</p>
-            <div class="big-heart">🔥</div>
-            <p>We are almost there, my princess. My heart is waiting for you at the bottom.</p>
-        </div>
-    </section>
-
-    <section class="reveal" id="question-section">
-        <div class="glass-card" id="main-card">
+        <div class="glass-box">
             <h1>Nashwa...</h1>
-            <div class="big-heart">💝</div>
-            <h2>Will you stay with me for the rest of my life? ❤️</h2>
-            <button class="btn" onclick="celebrate()">YES, FOREVER! ❤️</button>
+            <h2>My Universe, My Moltye</h2>
+            <p>I didn't just build a website. I built a sanctuary for my love for you.<br>Scroll down to enter my heart.</p>
+            <div style="font-size: 50px; margin-top: 20px;">🪐</div>
+        </div>
+    </section>
+
+    <section class="reveal">
+        <div class="bubble" style="width:120px; height:120px; top:10%; left:10%;">Your Eyes 👀</div>
+        <div class="bubble" style="width:100px; height:100px; top:20%; right:15%;">Your Voice 🎙️</div>
+        <div class="bubble" style="width:140px; height:140px; bottom:20%; left:20%;">My Safety 🫂</div>
+        <div class="bubble" style="width:90px; height:90px; top:50%; right:5%;">Your Laugh 😂</div>
+        
+        <div class="glass-box">
+            <h2>The Little Things</h2>
+            <p>Pop the bubbles around this box. Every single thing about you is a treasure I keep locked in my soul.</p>
+            <p>You aren't just a person; you are a collection of my favorite miracles.</p>
+        </div>
+    </section>
+
+    <section class="reveal">
+        <div class="glass-box">
+            <h2>Our Journey</h2>
+            <div class="timeline">
+                <div class="time-point"><h3>The Moment We Met</h3><p>The day the stars aligned and my life finally made sense.</p></div>
+                <div class="time-point"><h3>The Realization</h3><p>When I knew that no one else could ever take your place.</p></div>
+                <div class="time-point"><h3>The Present</h3><p>Standing here, more in love with you than I was a second ago.</p></div>
+                <div class="time-point"><h3>The Forever</h3><p>A future where every morning starts with your face.</p></div>
+            </div>
+        </div>
+    </section>
+
+    <section class="reveal">
+        <div class="glass-box" style="border: 2px solid var(--gold);">
+            <h2 style="color: var(--gold);">To My Baby Princess</h2>
+            <p style="font-family: 'Dancing Script'; font-size: 2.5rem; color: var(--soft-pink);">
+                "If I had a flower for every time<br>
+                I thought of you, Nashwa...<br>
+                I could walk through my garden<br>
+                Forever."
+            </p>
+        </div>
+    </section>
+
+    <section class="reveal">
+        <div class="glass-box">
+            <h2>Why Only You?</h2>
+            <p>Because you see the version of me that I'm too afraid to show the world. Because when you say my name, it sounds like home. Because, Nashwa, you are the only person who makes the "Forever" sound like not enough time.</p>
+            <div style="font-size: 80px; animation: float 3s infinite;">🧿</div>
+        </div>
+    </section>
+
+    <section class="reveal" id="final-gate">
+        <div class="glass-box" id="ask-card">
+            <h1>One Final Truth...</h1>
+            <p>Nashwa, my heart is beating at 100% capacity right now. I have scrolled through my soul to tell you this:</p>
+            <h2 style="margin: 40px 0;">Will you walk beside me for the rest of eternity? ❤️</h2>
+            <button class="btn-forever" onclick="ultimateCelebration()">YES, ALWAYS! 💍</button>
         </div>
 
-        <div class="glass-card" id="success-msg">
-            <h1>I Love You Forever! ❤️</h1>
-            <p>You’ve made me the happiest person in the universe. I am yours, and you are mine, forever and always, Nashwa.</p>
-            <div class="big-heart" style="animation-duration: 0.5s;">💖✨🔥</div>
+        <div class="glass-box" id="victory-card" style="display:none; border: 5px solid var(--gold);">
+            <h1>MY QUEEN! 👑</h1>
+            <p>You have made me the most powerful man in the world just by saying yes. I promise to protect your smile with my life.</p>
+            <h2 style="color: var(--hot-pink);">I Love You, Nashwa! Forever & Always.</h2>
         </div>
     </section>
 
     <script>
-        // Scroll Logic
+        // Generate Stars
+        const starContainer = document.getElementById('star-container');
+        for(let i=0; i<150; i++) {
+            const star = document.createElement('div');
+            star.className = 'star';
+            const size = Math.random() * 3 + 'px';
+            star.style.width = size;
+            star.style.height = size;
+            star.style.top = Math.random() * 100 + 'vh';
+            star.style.left = Math.random() * 100 + 'vw';
+            star.style.setProperty('--duration', Math.random() * 3 + 2 + 's');
+            starContainer.appendChild(star);
+        }
+
+        // Scroll Reveal Logic
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
-                if (entry.isIntersecting) entry.target.classList.add('visible');
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('show');
+                }
             });
-        }, { threshold: 0.1 });
+        }, { threshold: 0.3 });
 
-        document.querySelectorAll('section').forEach(s => observer.observe(s));
+        document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 
-        // Floating Hearts and Names
-        function createFloating() {
-            const container = document.getElementById('bg-elements');
-            const el = document.createElement('div');
-            el.classList.add('floating-text');
-            const items = ['❤️', '💖', 'Nashwa', 'Moltye', 'My World', 'Princess 👑', '🌹', 'Everything', 'Baby 😌', 'Smile 😊', 'Forever', 'Mine'];
-            el.innerText = items[Math.floor(Math.random() * items.length)];
-            el.style.left = Math.random() * 100 + 'vw';
-            el.style.fontSize = Math.random() * 20 + 20 + 'px';
-            el.style.animationDuration = Math.random() * 5 + 5 + 's';
-            container.appendChild(el);
-            setTimeout(() => el.remove(), 10000);
-        }
-        setInterval(createFloating, 200);
-
-        // Interaction: Mouse/Touch Trail
-        document.addEventListener('mousemove', (e) => {
-            createHeartTrail(e.clientX, e.clientY);
-        });
-        document.addEventListener('touchstart', (e) => {
-            createHeartTrail(e.touches[0].clientX, e.touches[0].clientY);
+        // Love Meter Logic
+        window.addEventListener('scroll', () => {
+            const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+            const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            const scrolled = (winScroll / height) * 100;
+            document.getElementById("love-fill").style.height = scrolled + "%";
         });
 
-        function createHeartTrail(x, y) {
-            const heart = document.createElement('div');
-            heart.innerText = '❤️';
-            heart.style.position = 'fixed';
-            heart.style.left = x + 'px';
-            heart.style.top = y + 'px';
-            heart.style.pointerEvents = 'none';
-            heart.style.fontSize = '20px';
-            heart.style.zIndex = '1000';
-            document.body.appendChild(heart);
-            setTimeout(() => {
-                heart.style.transition = 'all 1s ease';
-                heart.style.transform = 'translateY(-50px) scale(0)';
-                heart.style.opacity = '0';
-                setTimeout(() => heart.remove(), 1000);
-            }, 50);
-        }
+        // The Ultimate Celebration
+        function ultimateCelebration() {
+            document.getElementById('ask-card').style.display = 'none';
+            document.getElementById('victory-card').style.display = 'block';
+            
+            // Background color shift to Gold
+            document.body.style.transition = '5s';
+            document.body.style.backgroundColor = '#590d22';
 
-        function celebrate() {
-            document.getElementById('main-card').style.display = 'none';
-            document.getElementById('success-msg').style.display = 'block';
-            for(let i=0; i<300; i++) {
+            for(let i=0; i<200; i++) {
                 setTimeout(() => {
-                    const item = document.createElement('div');
-                    item.classList.add('floating-text');
-                    item.innerText = ['🌹', '❤️', '💖', '✨', '💍', '🌸'][Math.floor(Math.random()*6)];
-                    item.style.left = Math.random() * 100 + 'vw';
-                    item.style.fontSize = '50px';
-                    item.style.animationDuration = '2.5s';
-                    document.getElementById('bg-elements').appendChild(item);
-                }, i * 15);
+                    const heart = document.createElement('div');
+                    heart.innerHTML = ['❤️', '💖', '👑', '💍', '✨', '🌹'][Math.floor(Math.random()*6)];
+                    heart.style.position = 'fixed';
+                    heart.style.left = Math.random() * 100 + 'vw';
+                    heart.style.top = '100vh';
+                    heart.style.fontSize = Math.random() * 40 + 20 + 'px';
+                    heart.style.zIndex = '1000';
+                    heart.style.transition = 'transform 3s linear, opacity 3s';
+                    document.body.appendChild(heart);
+
+                    setTimeout(() => {
+                        heart.style.transform = `translateY(-120vh) translateX(${Math.random() * 200 - 100}px) rotate(${Math.random()*360}deg)`;
+                        heart.style.opacity = '0';
+                    }, 100);
+                    
+                    setTimeout(() => heart.remove(), 4000);
+                }, i * 30);
             }
         }
+
+        // Bubble Interaction
+        document.querySelectorAll('.bubble').forEach(b => {
+            b.addEventListener('click', () => {
+                b.style.transform = 'scale(2)';
+                b.style.opacity = '0';
+                setTimeout(() => b.remove(), 500);
+            });
+        });
     </script>
 </body>
 </html>
