@@ -1,1 +1,120 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Our 💞</title>
 
+<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
+
+<style>
+body{
+  margin:0;
+  font-family:sans-serif;
+  color:white;
+  overflow-x:hidden;
+  background:linear-gradient(135deg,#ff4f8b,#ff99cc,#ff4f8b);
+  background-size:400% 400%;
+  animation:bgMove 15s ease infinite;
+}
+
+@keyframes bgMove{
+  0%{background-position:0% 50%;}
+  50%{background-position:100% 50%;}
+  100%{background-position:0% 50%;}
+}
+
+.container{
+  padding:80px 20px;
+  text-align:center;
+}
+
+h1{
+  font-family:'Great Vibes',cursive;
+  font-size:65px;
+  text-shadow:0 0 20px white;
+}
+
+/* Glass Cards */
+.gallery{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
+  gap:25px;
+  max-width:1000px;
+  margin:50px auto;
+}
+
+.card{
+  background:rgba(255,255,255,.2);
+  backdrop-filter:blur(15px);
+  border-radius:20px;
+  padding:10px;
+  transition:.4s;
+  box-shadow:0 0 25px rgba(255,255,255,.5);
+}
+.card:hover{
+  transform:scale(1.07);
+  box-shadow:0 0 50px white;
+}
+.card img{
+  width:100%;
+  border-radius:15px;
+  cursor:pointer;
+}
+
+/* Viewer */
+#viewer{
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,.95);
+  display:none;
+  justify-content:center;
+  align-items:center;
+}
+#viewer img{
+  max-width:90%;
+  max-height:90%;
+  border-radius:20px;
+}
+
+.back{
+  padding:12px 40px;
+  border:none;
+  border-radius:30px;
+  background:white;
+  color:#ff4f8b;
+  cursor:pointer;
+  font-weight:bold;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+  <h1>Just Us 💞</h1>
+
+  <div class="gallery">
+    <div class="card"><img src="We1.jpg.jpeg" onclick="view(this)"></div>
+    <div class="card"><img src="We2.jpg.jpeg" onclick="view(this)"></div>
+    <div class="card"><img src="We3.jpg.jpeg" onclick="view(this)"></div>
+    <div class="card"><img src="We4.jpg.jpeg" onclick="view(this)"></div>
+    <div class="card"><img src="We5.jpg.jpeg" onclick="view(this)"></div>
+  </div>
+
+  <button class="back" onclick="location.href='index.html'">Back</button>
+</div>
+
+<div id="viewer" onclick="this.style.display='none'">
+  <img id="big">
+</div>
+
+<script>
+function view(img){
+  document.getElementById("big").src=img.src;
+  document.getElementById("viewer").style.display="flex";
+}
+</script>
+
+</body>
+</html>
