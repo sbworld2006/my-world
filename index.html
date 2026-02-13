@@ -3,25 +3,27 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>For My World, Nashwa ❤️</title>
+<title>For My World ❤️</title>
 
 <style>
-@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Poppins&family=Great+Vibes&family=Parisienne&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Great+Vibes&display=swap');
 
 :root{
---primary:#ff4d6d;
---deep:#c9184a;
+--main:#ff4d6d;
+--dark:#c9184a;
 --glass:rgba(255,255,255,.25);
 }
+
+*{box-sizing:border-box}
 
 body{
 margin:0;
 font-family:Poppins;
 background:linear-gradient(-45deg,#ffafbd,#ffc3a0,#ffafcc,#bde0fe);
 background-size:400% 400%;
-animation:bg 18s infinite;
-overflow-x:hidden;
+animation:bg 16s infinite;
 color:#590d22;
+overflow-x:hidden;
 }
 
 @keyframes bg{
@@ -30,227 +32,287 @@ color:#590d22;
 100%{background-position:0% 50%}
 }
 
-section{
-min-height:110vh;
+/* ===== PASSWORD SCREEN ===== */
+
+#lockScreen{
+position:fixed;
+inset:0;
 display:flex;
 justify-content:center;
 align-items:center;
-padding:150px 20px;
+background:linear-gradient(-45deg,#ff758f,#ffb199,#ffc3a0);
+z-index:9999;
+}
+
+.lockBox{
+background:rgba(255,255,255,.3);
+backdrop-filter:blur(20px);
+padding:50px 35px;
+border-radius:35px;
+text-align:center;
+box-shadow:0 30px 80px rgba(0,0,0,.2);
+width:min(90%,400px);
+}
+
+.lockBox h1{
+font-family:Great Vibes;
+font-size:3rem;
+color:var(--dark);
+}
+
+.lockBox input{
+width:100%;
+padding:16px;
+border:none;
+border-radius:25px;
+font-size:1.2rem;
+text-align:center;
+margin-top:20px;
+outline:none;
+}
+
+.lockBox button{
+margin-top:25px;
+padding:14px 40px;
+border:none;
+border-radius:40px;
+background:linear-gradient(45deg,var(--main),var(--dark));
+color:white;
+font-size:1.3rem;
+cursor:pointer;
+}
+
+#error{
+color:#800f2f;
+margin-top:10px;
+}
+
+/* ===== MAIN SITE ===== */
+
+#site{
+display:none;
+}
+
+section{
+min-height:100vh;
+display:flex;
+justify-content:center;
+align-items:center;
+padding:80px 20px;
 text-align:center;
 }
 
-.glass-card{
+.card{
 background:var(--glass);
-backdrop-filter:blur(20px);
-border-radius:50px;
-padding:80px 40px;
-max-width:650px;
-width:90%;
-box-shadow:0 30px 80px rgba(0,0,0,.15);
+backdrop-filter:blur(18px);
+padding:60px 35px;
+border-radius:40px;
+width:min(90%,600px);
+box-shadow:0 25px 70px rgba(0,0,0,.15);
 opacity:0;
-transform:translateY(120px);
-transition:1.6s cubic-bezier(.17,.89,.32,1.3);
+transform:translateY(80px);
+transition:1.4s ease;
 }
 
-.visible .glass-card{
+.visible .card{
 opacity:1;
 transform:translateY(0);
 }
 
-h1{font-family:Great Vibes;font-size:5rem;color:var(--deep);}
-h2{font-family:Parisienne;font-size:3.5rem;color:var(--deep);}
+h1{
+font-family:Great Vibes;
+font-size:clamp(2.5rem,6vw,4rem);
+color:var(--dark);
+}
 
-.big-heart{
-font-size:100px;
+h2{
+font-size:clamp(1.6rem,4vw,2.4rem);
+color:var(--dark);
+}
+
+.heart{
+font-size:clamp(3rem,8vw,5rem);
 animation:pulse 1.5s infinite;
 }
 
 @keyframes pulse{
-0%,100%{transform:scale(1)}
-50%{transform:scale(1.3)}
+50%{transform:scale(1.25)}
 }
 
-.reason-box{
+.textBox{
 background:rgba(255,255,255,.6);
-padding:25px;
-margin:18px 0;
-border-radius:30px;
-font-weight:bold;
-color:var(--deep);
-}
-
-.poetry{
-font-family:Dancing Script;
-font-size:2rem;
-border-left:4px solid var(--primary);
-padding-left:15px;
+padding:18px;
+border-radius:22px;
+margin:15px 0;
+font-weight:600;
 }
 
 #typing{
-font-family:Dancing Script;
-font-size:2.4rem;
-color:#c9184a;
-margin-top:30px;
-min-height:60px;
+margin-top:25px;
+font-size:clamp(1.3rem,4vw,2rem);
+color:var(--dark);
 }
 
-.btn{
-padding:30px 100px;
+.mainBtn{
+margin-top:35px;
+padding:18px 60px;
 border:none;
-border-radius:80px;
-font-size:2.2rem;
-font-family:Great Vibes;
-background:linear-gradient(45deg,#ff4d6d,#c9184a);
+border-radius:60px;
+background:linear-gradient(45deg,var(--main),var(--dark));
 color:white;
+font-size:1.6rem;
 cursor:pointer;
-box-shadow:0 20px 50px rgba(255,77,109,.6);
-transition:.5s;
+transition:.4s;
 }
 
-.btn:hover{transform:scale(1.15);}
+.mainBtn:hover{transform:scale(1.1)}
 
-#bg-elements{
-position:fixed;
-width:100%;
-height:100%;
-pointer-events:none;
-z-index:-1;
-}
-
-.floating-text{
-position:absolute;
-bottom:-100px;
-animation:float 10s linear forwards;
-color:#ff4d6d;
-font-weight:bold;
-}
-
-@keyframes float{
-to{transform:translateY(-140vh) rotate(360deg);opacity:0;}
-}
-
-.final-buttons{
-margin-top:80px;
+.buttons{
+margin-top:50px;
 display:flex;
-gap:25px;
+gap:18px;
 flex-wrap:wrap;
 justify-content:center;
 }
 
-.magic-btn{
-padding:22px 60px;
-border-radius:60px;
+.linkBtn{
+padding:14px 40px;
+border-radius:50px;
 border:none;
-font-size:1.8rem;
-font-family:Great Vibes;
-cursor:pointer;
+font-size:1.4rem;
+background:linear-gradient(45deg,var(--main),var(--dark));
 color:white;
-background:linear-gradient(45deg,#ff4d6d,#c9184a);
-box-shadow:0 15px 40px rgba(255,77,109,.7);
-transition:.5s;
-animation:glow 2s infinite;
+cursor:pointer;
+box-shadow:0 10px 35px rgba(255,77,109,.6);
+transition:.4s;
 }
 
-.magic-btn:hover{transform:scale(1.15);}
-
-@keyframes glow{
-0%{box-shadow:0 0 20px #ff4d6d}
-50%{box-shadow:0 0 50px #ffb3c1}
-100%{box-shadow:0 0 20px #ff4d6d}
-}
+.linkBtn:hover{transform:scale(1.12)}
 
 .kiss{
 position:fixed;
-font-size:30px;
+font-size:26px;
+animation:kiss 1.1s ease forwards;
 pointer-events:none;
-animation:kiss 1.2s ease forwards;
 }
 
 @keyframes kiss{
-0%{transform:scale(.3);opacity:1}
-100%{transform:translateY(-80px) scale(1.5);opacity:0}
+to{transform:translateY(-80px) scale(1.6);opacity:0}
 }
 </style>
 </head>
 
 <body>
 
-<div id="bg-elements"></div>
+<!-- PASSWORD -->
+
+<div id="lockScreen">
+<div class="lockBox">
+<h1>Enter With Love ❤️</h1>
+<input type="text" id="pass" placeholder="Password">
+<button onclick="unlock()">Open 💖</button>
+<p id="error"></p>
+</div>
+</div>
+
+<!-- MAIN SITE -->
+
+<div id="site">
 
 <section class="reveal">
-<div class="glass-card">
+<div class="card">
 <h1>Hi Nashwa ❤️</h1>
-<div class="big-heart">❤️</div>
+<div class="heart">❤️</div>
 <div id="typing"></div>
 </div>
 </section>
 
 <section class="reveal">
-<div class="glass-card">
+<div class="card">
 <h2>My Everything</h2>
-<div class="reason-box">You're my baby 😌</div>
-<div class="reason-box">You're my world 🌍</div>
-<div class="reason-box">You're my princess 👑</div>
+<div class="textBox">You're my baby 😌</div>
+<div class="textBox">You're my world 🌍</div>
+<div class="textBox">You're my princess 👑</div>
 </div>
 </section>
 
 <section class="reveal">
-<div class="glass-card">
+<div class="card">
 <h1>Stay Forever?</h1>
-<div class="big-heart">💝</div>
-<button class="btn" onclick="celebrate()">YES ❤️</button>
+<div class="heart">💝</div>
+<button class="mainBtn" onclick="celebrate()">YES ❤️</button>
 
-<div id="success-msg" style="display:none">
+<div id="success" style="display:none">
 <h1>I Love You Forever 💖</h1>
 </div>
 
-<div class="final-buttons">
-<button class="magic-btn" onclick="location.href='love.html'">❤️ Love</button>
-<button class="magic-btn" onclick="location.href='world.html'">🌍 World</button>
-<button class="magic-btn" onclick="location.href='we.html'">🤍 We</button>
+<div class="buttons">
+<button class="linkBtn" onclick="location.href='love.html'">❤️ Love</button>
+<button class="linkBtn" onclick="location.href='world.html'">🌍 World</button>
+<button class="linkBtn" onclick="location.href='we.html'">🤍 We</button>
 </div>
 </div>
 </section>
 
+</div>
+
 <script>
+
+/* PASSWORD MASK HEARTS */
+
+const input=document.getElementById("pass")
+let real=""
+
+input.addEventListener("input",e=>{
+real+=e.data||""
+input.value="❤️".repeat(real.length)
+})
+
+function unlock(){
+if(real==="shundri"){
+document.getElementById("lockScreen").style.display="none"
+document.getElementById("site").style.display="block"
+}else{
+document.getElementById("error").innerText="Wrong password 💔"
+real=""
+input.value=""
+}
+}
+
+/* REVEAL */
+
 const observer=new IntersectionObserver(e=>{
 e.forEach(x=>{if(x.isIntersecting)x.target.classList.add("visible")})
-},{threshold:.1})
-document.querySelectorAll("section").forEach(s=>observer.observe(s))
+},{threshold:.2})
 
-function createFloating(){
-const el=document.createElement("div")
-el.className="floating-text"
-const items=["❤️","💖","Nashwa","Forever","🌹","Princess"]
-el.innerText=items[Math.random()*items.length|0]
-el.style.left=Math.random()*100+"vw"
-el.style.fontSize=Math.random()*20+20+"px"
-document.getElementById("bg-elements").appendChild(el)
-setTimeout(()=>el.remove(),10000)
-}
-setInterval(createFloating,200)
+document.querySelectorAll(".reveal").forEach(s=>observer.observe(s))
 
-const messages=[
-"I love you more than words can say 💖",
-"You are my world, Nashwa 🌍",
-"My heart beats only for you ❤️",
-"Forever yours, my princess 👑",
-"You complete my soul ✨"
+/* TYPING */
+
+const texts=[
+"I love you endlessly 💖",
+"You are my world 🌍",
+"My heart belongs to you ❤️",
+"Forever together ✨",
+"My princess 👑"
 ]
 
 let i=0,j=0,del=false
+
 function type(){
-const el=document.getElementById("typing")
+const t=document.getElementById("typing")
 if(!del){
-el.textContent=messages[i].slice(0,++j)
-if(j===messages[i].length)del=true
+t.textContent=texts[i].slice(0,++j)
+if(j===texts[i].length)del=true
 }else{
-el.textContent=messages[i].slice(0,--j)
-if(j===0){del=false;i=(i+1)%messages.length}
+t.textContent=texts[i].slice(0,--j)
+if(j===0){del=false;i=(i+1)%texts.length}
 }
-setTimeout(type,80)
+setTimeout(type,90)
 }
 type()
+
+/* KISS */
 
 document.addEventListener("click",e=>{
 const k=document.createElement("div")
@@ -259,12 +321,13 @@ k.innerText="💋"
 k.style.left=e.clientX+"px"
 k.style.top=e.clientY+"px"
 document.body.appendChild(k)
-setTimeout(()=>k.remove(),1200)
+setTimeout(()=>k.remove(),1100)
 })
 
 function celebrate(){
-document.getElementById("success-msg").style.display="block"
+document.getElementById("success").style.display="block"
 }
+
 </script>
 
 </body>
