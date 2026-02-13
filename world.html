@@ -1,178 +1,127 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Our Golden World 🌍</title>
-
-<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@300&display=swap" rel="stylesheet">
+<title>My World With You 🌍</title>
 
 <style>
+html{scroll-behavior:smooth}
+
 body{
-  margin:0;
-  font-family:'Poppins',sans-serif;
-  color:white;
-  overflow-x:hidden;
-  background:linear-gradient(135deg,#1a1a1a,#3b2a00,#000);
-  background-size:400% 400%;
-  animation:bgMove 18s ease infinite;
-}
-
-@keyframes bgMove{
-  0%{background-position:0% 50%;}
-  50%{background-position:100% 50%;}
-  100%{background-position:0% 50%;}
-}
-
-/* Floating golden particles */
-.particle{
-  position:fixed;
-  width:4px;
-  height:4px;
-  background:gold;
-  border-radius:50%;
-  opacity:.6;
-  animation:float 15s linear infinite;
-}
-
-@keyframes float{
-  from{transform:translateY(100vh);}
-  to{transform:translateY(-10vh);}
-}
-
-.container{
-  padding:80px 20px;
-  text-align:center;
+margin:0;
+font-family:system-ui,Arial;
+background:linear-gradient(135deg,#ffd6e0,#ffafcc,#cdb4db);
+overflow-x:hidden;
 }
 
 h1{
-  font-family:'Great Vibes',cursive;
-  font-size:65px;
-  color:gold;
-  text-shadow:0 0 20px gold, 0 0 40px orange;
-  animation:glow 3s ease-in-out infinite alternate;
-}
-
-@keyframes glow{
-  from{text-shadow:0 0 15px gold;}
-  to{text-shadow:0 0 40px orange;}
+text-align:center;
+font-size:clamp(2.3rem,7vw,4rem);
+margin:35px 10px;
+color:#5a0015;
+letter-spacing:2px;
 }
 
 .subtitle{
-  font-size:18px;
-  opacity:.8;
-  margin-bottom:40px;
+text-align:center;
+font-size:clamp(1rem,3.5vw,1.4rem);
+color:#7a0030;
+margin-bottom:30px;
 }
 
 .gallery{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
-  gap:30px;
-  max-width:1100px;
-  margin:0 auto;
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(190px,1fr));
+gap:22px;
+padding:20px;
+max-width:1150px;
+margin:auto;
 }
 
 .card{
-  background:rgba(255,215,0,.08);
-  backdrop-filter:blur(20px);
-  border-radius:25px;
-  padding:12px;
-  transition:.5s;
-  box-shadow:0 0 30px rgba(255,215,0,.3);
-}
-
-.card:hover{
-  transform:translateY(-10px) scale(1.05);
-  box-shadow:0 0 60px rgba(255,215,0,.8);
+border-radius:28px;
+overflow:hidden;
+position:relative;
+box-shadow:0 20px 60px rgba(0,0,0,.25);
+transition:.7s;
+background:#fff;
 }
 
 .card img{
-  width:100%;
-  border-radius:20px;
-  cursor:pointer;
-  transition:.5s;
-  filter:brightness(.9);
+width:100%;
+height:100%;
+object-fit:cover;
+transition:.8s;
 }
 
-.card img:hover{
-  filter:brightness(1.1);
+.card::after{
+content:"My World ❤️";
+position:absolute;
+inset:0;
+display:flex;
+align-items:center;
+justify-content:center;
+font-size:2rem;
+font-weight:bold;
+color:white;
+background:rgba(255,0,100,.35);
+opacity:0;
+transition:.6s;
 }
 
-#viewer{
-  position:fixed;
-  inset:0;
-  background:rgba(0,0,0,.95);
-  display:none;
-  justify-content:center;
-  align-items:center;
-  z-index:999;
+.card:hover::after{opacity:1}
+
+.card:hover{
+transform:scale(1.08) translateY(-10px);
+box-shadow:0 30px 90px rgba(255,0,80,.6);
 }
 
-#viewer img{
-  max-width:90%;
-  max-height:90%;
-  border-radius:25px;
-  box-shadow:0 0 60px gold;
-  animation:zoom .4s ease;
+.card:hover img{
+transform:scale(1.18);
 }
 
-@keyframes zoom{
-  from{transform:scale(.7); opacity:0;}
-  to{transform:scale(1); opacity:1;}
+/* floating hearts */
+.heart{
+position:fixed;
+bottom:-20px;
+font-size:18px;
+animation:float 9s linear infinite;
+opacity:.6;
 }
 
-.back{
-  margin-top:50px;
-  padding:12px 45px;
-  border:none;
-  border-radius:40px;
-  background:gold;
-  color:black;
-  font-size:16px;
-  cursor:pointer;
-  transition:.3s;
-}
-
-.back:hover{
-  transform:scale(1.1);
-  box-shadow:0 0 20px gold;
+@keyframes float{
+0%{transform:translateY(0);opacity:0}
+20%{opacity:.6}
+100%{transform:translateY(-120vh);opacity:0}
 }
 </style>
 </head>
 
 <body>
 
-<!-- Golden particles -->
-<div class="particle" style="left:10%; animation-delay:0s;"></div>
-<div class="particle" style="left:30%; animation-delay:3s;"></div>
-<div class="particle" style="left:50%; animation-delay:6s;"></div>
-<div class="particle" style="left:70%; animation-delay:9s;"></div>
-<div class="particle" style="left:90%; animation-delay:12s;"></div>
+<h1>My World With You 🌍</h1>
+<div class="subtitle">Every moment becomes beautiful with you</div>
 
-<div class="container">
-  <h1>Our Golden Days 🌍</h1>
-  <p class="subtitle">Memories that shine brighter than gold ✨</p>
-
-  <div class="gallery">
-    <div class="card"><img src="Old1.jpg.jpeg" onclick="view(this)"></div>
-    <div class="card"><img src="Old2.jpg.jpeg" onclick="view(this)"></div>
-    <div class="card"><img src="Old3.jpg.jpeg" onclick="view(this)"></div>
-    <div class="card"><img src="Old4.jpg.jpeg" onclick="view(this)"></div>
-    <div class="card"><img src="Old5.jpg.jpeg" onclick="view(this)"></div>
-  </div>
-
-  <button class="back" onclick="location.href='index.html'">Back to Universe</button>
-</div>
-
-<div id="viewer" onclick="this.style.display='none'">
-  <img id="big">
+<div class="gallery">
+<div class="card"><img src="Old1.jpg.jpeg"></div>
+<div class="card"><img src="Old2.jpg.jpeg"></div>
+<div class="card"><img src="Old3.jpg.jpeg"></div>
+<div class="card"><img src="Old4.jpg.jpeg"></div>
+<div class="card"><img src="Old5.jpg.jpeg"></div>
 </div>
 
 <script>
-function view(img){
-  document.getElementById("big").src=img.src;
-  document.getElementById("viewer").style.display="flex";
+function createHeart(){
+const heart=document.createElement("div")
+heart.className="heart"
+heart.innerHTML="💖"
+heart.style.left=Math.random()*100+"vw"
+heart.style.fontSize=12+Math.random()*22+"px"
+document.body.appendChild(heart)
+setTimeout(()=>heart.remove(),9000)
 }
+setInterval(createHeart,450)
 </script>
 
 </body>
