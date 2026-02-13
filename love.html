@@ -1,145 +1,69 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Love 💖</title>
-
-<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
+<title>Love ❤️</title>
 
 <style>
 body{
-  margin:0;
-  background:#000;
-  font-family:sans-serif;
-  color:white;
-  overflow-x:hidden;
-}
-
-/* Galaxy */
-#stars{
-  position:fixed;
-  inset:0;
-  background:
-    radial-gradient(circle at 20% 30%, #fff 1px, transparent 2px),
-    radial-gradient(circle at 70% 60%, #fff 1px, transparent 2px),
-    #000;
-  background-size:300px 300px;
-  animation:move 120s linear infinite;
-  z-index:-3;
-}
-@keyframes move{
-  from{background-position:0 0;}
-  to{background-position:-2000px 2000px;}
-}
-
-/* Shooting Star */
-.shooting-star{
-  position:fixed;
-  width:2px;
-  height:100px;
-  background:linear-gradient(-45deg, white, transparent);
-  animation:shoot 3s linear infinite;
-}
-@keyframes shoot{
-  0%{transform:translate(0,0) rotate(45deg);}
-  100%{transform:translate(600px,600px) rotate(45deg); opacity:0;}
-}
-
-.container{
-  padding:80px 20px;
-  text-align:center;
+margin:0;
+font-family:system-ui,Arial;
+background:linear-gradient(135deg,#ff9a9e,#fad0c4);
 }
 
 h1{
-  font-family:'Great Vibes',cursive;
-  font-size:60px;
-  color:#ff4f8b;
-  text-shadow:0 0 20px #ff4f8b;
+text-align:center;
+font-size:clamp(2rem,7vw,4rem);
+margin:30px 10px;
+color:#7a0019;
 }
 
-/* Glass Gallery */
 .gallery{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
-  gap:25px;
-  max-width:1000px;
-  margin:50px auto;
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
+gap:18px;
+padding:20px;
+max-width:1100px;
+margin:auto;
 }
 
-.card{
-  background:rgba(255,255,255,.1);
-  backdrop-filter:blur(20px);
-  border-radius:20px;
-  padding:10px;
-  transition:.4s;
-  box-shadow:0 0 20px rgba(255,79,139,.4);
-}
-.card:hover{
-  transform:scale(1.05);
-  box-shadow:0 0 40px rgba(255,79,139,.8);
-}
-.card img{
-  width:100%;
-  border-radius:15px;
-  cursor:pointer;
+.photo{
+border-radius:20px;
+overflow:hidden;
+box-shadow:0 15px 40px rgba(0,0,0,.25);
+transition:.6s;
 }
 
-/* Viewer */
-#viewer{
-  position:fixed;
-  inset:0;
-  background:rgba(0,0,0,.95);
-  display:none;
-  justify-content:center;
-  align-items:center;
-}
-#viewer img{
-  max-width:90%;
-  max-height:90%;
-  border-radius:20px;
+.photo img{
+width:100%;
+height:100%;
+object-fit:cover;
+transition:.6s;
 }
 
-.back{
-  padding:12px 40px;
-  border:none;
-  border-radius:30px;
-  background:#ff4f8b;
-  color:white;
-  cursor:pointer;
+.photo:hover{
+transform:scale(1.07);
+box-shadow:0 25px 70px rgba(255,0,80,.5);
+}
+
+.photo:hover img{
+transform:scale(1.15);
 }
 </style>
 </head>
 
 <body>
 
-<div id="stars"></div>
-<div class="shooting-star" style="top:20%; left:30%;"></div>
+<h1>Our Love Moments ❤️</h1>
 
-<div class="container">
-  <h1>Our Love Moments 💖</h1>
-
-  <div class="gallery">
-    <div class="card"><img src="Photo1.jpg.jpeg" onclick="view(this)"></div>
-    <div class="card"><img src="Photo2.jpg.jpeg" onclick="view(this)"></div>
-    <div class="card"><img src="Photo3.jpg.jpeg" onclick="view(this)"></div>
-    <div class="card"><img src="Photo4.jpg.jpeg" onclick="view(this)"></div>
-    <div class="card"><img src="Photo5.jpg.jpeg" onclick="view(this)"></div>
-  </div>
-
-  <button class="back" onclick="location.href='index.html'">Back</button>
+<div class="gallery">
+<img class="photo" src="Photo1.jpg.jpeg">
+<img class="photo" src="Photo2.jpg.jpeg">
+<img class="photo" src="Photo3.jpg.jpeg">
+<img class="photo" src="Photo4.jpg.jpeg">
+<img class="photo" src="Photo5.jpg.jpeg">
 </div>
-
-<div id="viewer" onclick="this.style.display='none'">
-  <img id="big">
-</div>
-
-<script>
-function view(img){
-  document.getElementById("big").src=img.src;
-  document.getElementById("viewer").style.display="flex";
-}
-</script>
 
 </body>
 </html>
