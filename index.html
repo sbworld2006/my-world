@@ -32,35 +32,55 @@ overflow-x:hidden;
 100%{background-position:0% 50%}
 }
 
-/* ===== PASSWORD SCREEN ===== */
+/* FLOATING BACKGROUND TEXT */
 
-#lockScreen{
+#bg{
+position:fixed;
+inset:0;
+pointer-events:none;
+z-index:-1;
+}
+
+.float{
+position:absolute;
+bottom:-100px;
+font-weight:bold;
+color:#ff4d6d;
+animation:rise 12s linear forwards;
+}
+
+@keyframes rise{
+to{transform:translateY(-140vh) rotate(360deg);opacity:0}
+}
+
+/* PASSWORD */
+
+#lock{
 position:fixed;
 inset:0;
 display:flex;
 justify-content:center;
 align-items:center;
-background:linear-gradient(-45deg,#ff758f,#ffb199,#ffc3a0);
+background:linear-gradient(-45deg,#ff758f,#ffc3a0);
 z-index:9999;
 }
 
-.lockBox{
-background:rgba(255,255,255,.3);
+.box{
+background:rgba(255,255,255,.35);
 backdrop-filter:blur(20px);
-padding:50px 35px;
+padding:45px;
 border-radius:35px;
 text-align:center;
-box-shadow:0 30px 80px rgba(0,0,0,.2);
-width:min(90%,400px);
+width:min(90%,380px);
 }
 
-.lockBox h1{
+.box h1{
 font-family:Great Vibes;
 font-size:3rem;
 color:var(--dark);
 }
 
-.lockBox input{
+.box input{
 width:100%;
 padding:16px;
 border:none;
@@ -71,7 +91,7 @@ margin-top:20px;
 outline:none;
 }
 
-.lockBox button{
+.box button{
 margin-top:25px;
 padding:14px 40px;
 border:none;
@@ -82,23 +102,16 @@ font-size:1.3rem;
 cursor:pointer;
 }
 
-#error{
-color:#800f2f;
-margin-top:10px;
-}
+/* SITE */
 
-/* ===== MAIN SITE ===== */
-
-#site{
-display:none;
-}
+#site{display:none}
 
 section{
-min-height:100vh;
+min-height:110vh;
 display:flex;
 justify-content:center;
 align-items:center;
-padding:80px 20px;
+padding:90px 20px;
 text-align:center;
 }
 
@@ -107,7 +120,7 @@ background:var(--glass);
 backdrop-filter:blur(18px);
 padding:60px 35px;
 border-radius:40px;
-width:min(90%,600px);
+width:min(90%,620px);
 box-shadow:0 25px 70px rgba(0,0,0,.15);
 opacity:0;
 transform:translateY(80px);
@@ -121,41 +134,39 @@ transform:translateY(0);
 
 h1{
 font-family:Great Vibes;
-font-size:clamp(2.5rem,6vw,4rem);
+font-size:clamp(2.6rem,6vw,4.2rem);
 color:var(--dark);
 }
 
 h2{
-font-size:clamp(1.6rem,4vw,2.4rem);
+font-size:clamp(1.6rem,4vw,2.5rem);
 color:var(--dark);
 }
 
 .heart{
-font-size:clamp(3rem,8vw,5rem);
+font-size:clamp(3.2rem,8vw,5.2rem);
 animation:pulse 1.5s infinite;
 }
 
-@keyframes pulse{
-50%{transform:scale(1.25)}
-}
+@keyframes pulse{50%{transform:scale(1.25)}}
 
-.textBox{
+.point{
 background:rgba(255,255,255,.6);
 padding:18px;
 border-radius:22px;
-margin:15px 0;
+margin:14px 0;
 font-weight:600;
 }
 
 #typing{
 margin-top:25px;
-font-size:clamp(1.3rem,4vw,2rem);
+font-size:clamp(1.4rem,4vw,2.1rem);
 color:var(--dark);
 }
 
 .mainBtn{
 margin-top:35px;
-padding:18px 60px;
+padding:18px 65px;
 border:none;
 border-radius:60px;
 background:linear-gradient(45deg,var(--main),var(--dark));
@@ -168,7 +179,7 @@ transition:.4s;
 .mainBtn:hover{transform:scale(1.1)}
 
 .buttons{
-margin-top:50px;
+margin-top:55px;
 display:flex;
 gap:18px;
 flex-wrap:wrap;
@@ -176,7 +187,7 @@ justify-content:center;
 }
 
 .linkBtn{
-padding:14px 40px;
+padding:14px 42px;
 border-radius:50px;
 border:none;
 font-size:1.4rem;
@@ -204,18 +215,20 @@ to{transform:translateY(-80px) scale(1.6);opacity:0}
 
 <body>
 
+<div id="bg"></div>
+
 <!-- PASSWORD -->
 
-<div id="lockScreen">
-<div class="lockBox">
+<div id="lock">
+<div class="box">
 <h1>Enter With Love ❤️</h1>
-<input type="text" id="pass" placeholder="Password">
+<input id="pass" placeholder="Password">
 <button onclick="unlock()">Open 💖</button>
-<p id="error"></p>
+<p id="err"></p>
 </div>
 </div>
 
-<!-- MAIN SITE -->
+<!-- SITE -->
 
 <div id="site">
 
@@ -229,10 +242,20 @@ to{transform:translateY(-80px) scale(1.6);opacity:0}
 
 <section class="reveal">
 <div class="card">
-<h2>My Everything</h2>
-<div class="textBox">You're my baby 😌</div>
-<div class="textBox">You're my world 🌍</div>
-<div class="textBox">You're my princess 👑</div>
+<h2>Why I Love You</h2>
+<div class="point">You understand my silence 💫</div>
+<div class="point">You make me feel safe 🫂</div>
+<div class="point">You bring peace to my heart 💖</div>
+<div class="point">You are my happiness 🌍</div>
+</div>
+</section>
+
+<section class="reveal">
+<div class="card">
+<h2>My Promises</h2>
+<div class="point">I will protect you always ❤️</div>
+<div class="point">I will choose you every day 💍</div>
+<div class="point">I will love you forever ♾️</div>
 </div>
 </section>
 
@@ -258,7 +281,21 @@ to{transform:translateY(-80px) scale(1.6);opacity:0}
 
 <script>
 
-/* PASSWORD MASK HEARTS */
+/* FLOATING NAMES */
+
+function floating(){
+const el=document.createElement("div")
+el.className="float"
+const items=["Nashwa","❤️","Princess","Forever","Love","My World","💖","🌹"]
+el.innerText=items[Math.random()*items.length|0]
+el.style.left=Math.random()*100+"vw"
+el.style.fontSize=Math.random()*22+20+"px"
+document.getElementById("bg").appendChild(el)
+setTimeout(()=>el.remove(),12000)
+}
+setInterval(floating,250)
+
+/* PASSWORD HEART MASK */
 
 const input=document.getElementById("pass")
 let real=""
@@ -270,10 +307,10 @@ input.value="❤️".repeat(real.length)
 
 function unlock(){
 if(real==="shundri"){
-document.getElementById("lockScreen").style.display="none"
-document.getElementById("site").style.display="block"
+lock.style.display="none"
+site.style.display="block"
 }else{
-document.getElementById("error").innerText="Wrong password 💔"
+err.innerText="Wrong password 💔"
 real=""
 input.value=""
 }
@@ -281,38 +318,36 @@ input.value=""
 
 /* REVEAL */
 
-const observer=new IntersectionObserver(e=>{
+const obs=new IntersectionObserver(e=>{
 e.forEach(x=>{if(x.isIntersecting)x.target.classList.add("visible")})
 },{threshold:.2})
-
-document.querySelectorAll(".reveal").forEach(s=>observer.observe(s))
+document.querySelectorAll(".reveal").forEach(s=>obs.observe(s))
 
 /* TYPING */
 
-const texts=[
+const msgs=[
 "I love you endlessly 💖",
 "You are my world 🌍",
-"My heart belongs to you ❤️",
-"Forever together ✨",
+"My heart beats for you ❤️",
+"Forever with you ✨",
 "My princess 👑"
 ]
 
 let i=0,j=0,del=false
-
 function type(){
 const t=document.getElementById("typing")
 if(!del){
-t.textContent=texts[i].slice(0,++j)
-if(j===texts[i].length)del=true
+t.textContent=msgs[i].slice(0,++j)
+if(j===msgs[i].length)del=true
 }else{
-t.textContent=texts[i].slice(0,--j)
-if(j===0){del=false;i=(i+1)%texts.length}
+t.textContent=msgs[i].slice(0,--j)
+if(j===0){del=false;i=(i+1)%msgs.length}
 }
 setTimeout(type,90)
 }
 type()
 
-/* KISS */
+/* KISS EFFECT */
 
 document.addEventListener("click",e=>{
 const k=document.createElement("div")
@@ -325,7 +360,7 @@ setTimeout(()=>k.remove(),1100)
 })
 
 function celebrate(){
-document.getElementById("success").style.display="block"
+success.style.display="block"
 }
 
 </script>
