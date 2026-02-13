@@ -32,8 +32,6 @@ overflow-x:hidden;
 100%{background-position:0% 50%}
 }
 
-/* FLOATING BACKGROUND TEXT */
-
 #bg{
 position:fixed;
 inset:0;
@@ -52,8 +50,6 @@ animation:rise 12s linear forwards;
 @keyframes rise{
 to{transform:translateY(-140vh) rotate(360deg);opacity:0}
 }
-
-/* PASSWORD */
 
 #lock{
 position:fixed;
@@ -101,8 +97,6 @@ color:white;
 font-size:1.3rem;
 cursor:pointer;
 }
-
-/* SITE */
 
 #site{display:none}
 
@@ -158,8 +152,16 @@ margin:14px 0;
 font-weight:600;
 }
 
-#typing{
+.loveText{
 margin-top:25px;
+font-size:1.15rem;
+line-height:1.8;
+color:#7a0030;
+font-weight:500;
+}
+
+#typing{
+margin-top:20px;
 font-size:clamp(1.4rem,4vw,2.1rem);
 color:var(--dark);
 }
@@ -217,8 +219,6 @@ to{transform:translateY(-80px) scale(1.6);opacity:0}
 
 <div id="bg"></div>
 
-<!-- PASSWORD -->
-
 <div id="lock">
 <div class="box">
 <h1>Enter With Love ❤️</h1>
@@ -228,8 +228,6 @@ to{transform:translateY(-80px) scale(1.6);opacity:0}
 </div>
 </div>
 
-<!-- SITE -->
-
 <div id="site">
 
 <section class="reveal">
@@ -237,6 +235,12 @@ to{transform:translateY(-80px) scale(1.6);opacity:0}
 <h1>Hi Nashwa ❤️</h1>
 <div class="heart">❤️</div>
 <div id="typing"></div>
+
+<p class="loveText">
+Nashwa, you are my baby, my princess, and the most precious gift of my life.  
+You are the smile in my heart, the peace in my soul, and the love I will protect forever. 👑❤️
+</p>
+
 </div>
 </section>
 
@@ -280,9 +284,6 @@ to{transform:translateY(-80px) scale(1.6);opacity:0}
 </div>
 
 <script>
-
-/* FLOATING NAMES */
-
 function floating(){
 const el=document.createElement("div")
 el.className="float"
@@ -294,8 +295,6 @@ document.getElementById("bg").appendChild(el)
 setTimeout(()=>el.remove(),12000)
 }
 setInterval(floating,250)
-
-/* PASSWORD HEART MASK */
 
 const input=document.getElementById("pass")
 let real=""
@@ -316,14 +315,10 @@ input.value=""
 }
 }
 
-/* REVEAL */
-
 const obs=new IntersectionObserver(e=>{
 e.forEach(x=>{if(x.isIntersecting)x.target.classList.add("visible")})
 },{threshold:.2})
 document.querySelectorAll(".reveal").forEach(s=>obs.observe(s))
-
-/* TYPING */
 
 const msgs=[
 "I love you endlessly 💖",
@@ -347,8 +342,6 @@ setTimeout(type,90)
 }
 type()
 
-/* KISS EFFECT */
-
 document.addEventListener("click",e=>{
 const k=document.createElement("div")
 k.className="kiss"
@@ -362,7 +355,6 @@ setTimeout(()=>k.remove(),1100)
 function celebrate(){
 success.style.display="block"
 }
-
 </script>
 
 </body>
